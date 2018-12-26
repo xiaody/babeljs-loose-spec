@@ -74,3 +74,9 @@ https://babeljs.io/docs/en/next/babel-plugin-transform-template-literals.html#lo
 Loose spread *assumes* all iterables are arrays, which you may not agree.
 
 https://babeljs.io/docs/en/next/babel-plugin-transform-spread.html#loose
+
+## TL;DR
+
+- Babel is not perfect
+- Use default options of [@babel/preset-env](https://babeljs.io/docs/en/next/babel-preset-env.html) unless you know what you are doing
+- Do not write weird code
