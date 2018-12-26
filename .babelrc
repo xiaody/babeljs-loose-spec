@@ -1,0 +1,14 @@
+{
+  presets: [
+    [
+      '@babel/preset-env',
+      {
+        loose: false,
+        spec: false,
+        forceAllTransforms: true,
+        modules: false,
+        exclude: ['transform-regenerator']
+      }
+    ]
+  ]
+}
