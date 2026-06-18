@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Show some edge cases of Babel",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "clean": "rm -rf lib",
     "build": "npm run clean && babel src --out-dir lib",
@@ -15,19 +16,13 @@
   "author": "xiaody",
   "license": "MIT",
   "ava": {
-    "verbose": true,
-    "babel": {
-      "testOptions": {
-        "babelrc": false
-      }
-    }
+    "verbose": true
   },
   "dependencies": {
-    "@ava/babel": "^1.0.1",
-    "@babel/cli": "^7.8",
-    "@babel/core": "^7.8.7",
-    "@babel/preset-env": "^7.8",
-    "ava": "^5.2",
-    "standard": "^14.3.1"
+    "@babel/cli": "^7.29",
+    "@babel/core": "^7.29",
+    "@babel/preset-env": "^7.29",
+    "ava": "^8",
+    "standard": "^17"
   }
 }
