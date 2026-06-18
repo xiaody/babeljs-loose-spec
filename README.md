@@ -1,15 +1,17 @@
-This repo demonstrates some edge cases that could make Babel compiled code fail.
+This repo demonstrates some edge cases that could make Babel(v7) compiled code fail.
 
 The `src` folder contains tests that could be directly excuted with `npm run test:src`,
-and all of them pass (with Node.js 10).
+and all of them pass (with Node.js 24).
 
 `npm run build` compile the `src` tests to `lib` with Babel.
 Use `npm run test:lib` to run the compiled tests.
 
 Depending on the options used for Babel (`@babel/preset-env`), some compiled tests would fail:
-- `{loose: false, spec: false}` (default) 3/10 fail
-- `{loose: false, spec: true}` 2/10 fail
-- `{loose: true, spec: false}` 10/10 fail
+- `{loose: false, spec: false}` (default) 4/9 fail
+- `{loose: false, spec: true}` 3/9 fail
+- `{loose: true, spec: false}` 9/9 fail
+
+> note: [loose and spec options are deprecated in Babel v8](https://babeljs.io/blog/2026/06/16/8.0.0/#deprecate-loose-and-spec-options)
 
 ## Some explanation of the failures
 
@@ -45,19 +47,13 @@ Should "define" properties instead of using "assign".
 
 https://babeljs.io/docs/en/next/babel-plugin-transform-computed-properties.html#loose
 
-### destructuring, loose:true
-
-Loose destructuring *assumes* what you want to destructure is an array, and fails for some other types.
-
-https://babeljs.io/docs/en/next/babel-plugin-transform-destructuring.html#loose
-
 ### parameters, loose:true
 
 Loose parameters with default values fail to keep the function arity for performance trade-off.
 
 https://babeljs.io/docs/en/next/babel-plugin-transform-parameters.html#loose
 
-### for-of, loose:true
+### for-of
 
 Loose for-of use a "fast path" for all arrays to achieve better performance, which would fail if the array has its own iterator defined.
 

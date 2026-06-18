@@ -3,11 +3,11 @@
     [
       '@babel/preset-env',
       {
-        loose: false,
+        loose: true,
         spec: false,
         forceAllTransforms: true,
         modules: false,
-        exclude: ['transform-regenerator']
+        exclude: ['transform-regenerator'],
       }
     ]
   ]
